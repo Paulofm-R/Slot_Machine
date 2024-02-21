@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versão 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Slot Machine</h1>
+    <div id="gameArea" class="game-container">
+        <div class="flex-container">
+            <div id="playerInfo">
+                Credits: 0
+            </div>
+            <div id="Bets">
+                <input type="radio" id="bet1" name="bet" value="1" checked>
+                <label for="bet1">1€</label>
+                <input type="radio" id="bet2" name="bet" value="2">
+                <label for="bet2">2€</label>
+                <input type="radio" id="bet5" name="bet" value="5">
+                <label for="bet3">5€</label>
+            </div>
+        </div>
+        <div id="numberArea" class="game-container">
+            <div id="num1" class="numArea">
+
+            </div>
+            <div id="num2" class="numArea"></div>
+            <div id="num3" class="numArea"></div>
+        </div>
+        <div class="buttons">
+            <button id="insertCredis">Add more credits</button>
+            <button id="play">Play</button>
+            <button id="giveUp">Give Up</button>
+        </div>
+    </div>
+    <div id="insertCredits">
+        <p>Insert more Credits</p>
+        <div id="panel">
+            <div id="display">
+                0
+            </div>
+            <div id="panelButtons" class="panel-container">
+                <div class="panelButtons"> + 1 </div>
+                <div class="panelButtons"> + 2 </div>
+                <div class="panelButtons"> + 5 </div>
+                <div class="panelButtons"> + 10 </div>
+                <div class="panelButtons"> - 1 </div>
+                <div class="panelButtons"> - 2 </div>
+                <div class="panelButtons"> - 5 </div>
+                <div class="panelButtons"> - 10 </div>
+            </div>
+            <div class="buttons">
+                <button id="addCredits">To Add</button>
+                <button id="insertCreditsCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="warnings"></div>
+    <script src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+h1 {
+    text-align: center;
+    margin-top: 15vh;
+    font-size: 35pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#gameArea {
+    margin: auto;
+    margin-top: 5vh;
+    padding: 5px;
+    width: 45vw;
+    height: 45vh;
+    border: 1px solid black;
+}
+
+#numberArea {
+    margin: 10px;
+    height: 85%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.numArea {
+    margin: 5px;
+    border: 1px solid black;
+    width: 25%;
+    height: 90%;
+    font-size: 4em;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    margin-top: auto;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.buttons>button {
+    width: 150px;
+    height: 45px;
+}
+
+#insertCredits {
+    margin: auto;
+    margin-top: 25vh;
+    width: 25vw;
+    height: 40vh;
+    border: 1px solid black;
+    display: none;
+}
+
+#insertCredits>p {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#display {
+    margin: 1px 35px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 3px;
+}
+
+.panel-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Isso permite que os itens sejam enrolados (passem para a próxima linha) quando não houver espaço suficiente */
+}
+
+#panelButtons {
+    margin: auto;
+    margin: 5px 10px;
+}
+
+.panelButtons {
+    border: solid 1px black;
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panelButtons:hover {
+    background-color: lightgray;
+}
+
+#warnings {
+    margin-top: 15px;
+    text-align: center;
+    color: red;
+    font-size: 2em;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 45px;
+    height: 45px;
+    -webkit-animation: spin 2s linear infinite;
+    /* Safari */
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

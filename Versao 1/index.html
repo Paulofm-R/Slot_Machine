@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Versão 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Slot Machine</h1>
+    <div id="gameArea" class="game-container">
+        <div class="flex-container">
+            <div id="playerInfo">
+                Credits: 0
+            </div>
+            <div id="Bets">
+                <input type="radio" id="bet1" name="bet" value="1" checked>
+                <label for="bet1">1€</label>
+                <input type="radio" id="bet2" name="bet" value="2">
+                <label for="bet2">2€</label>
+                <input type="radio" id="bet5" name="bet" value="5">
+                <label for="bet3">5€</label>
+            </div>
+        </div>
+        <div id="numberArea" class="game-container">
+            <div id="num1" class="numArea">
+
+            </div>
+            <div id="num2" class="numArea"></div>
+            <div id="num3" class="numArea"></div>
+        </div>
+        <div class="buttons">
+            <button id="insertCredis">Add more credits</button>
+            <button id="play">Play</button>
+            <button id="giveUp">Give Up</button>
+        </div>
+    </div>
+    <div id="insertCredits">
+        <p>Insert more Credits</p>
+        <div id="panel">
+            <div id="display">
+                0
+            </div>
+            <div id="panelButtons" class="panel-container">
+                <div class="panelButtons"> + 1 </div>
+                <div class="panelButtons"> + 2 </div>
+                <div class="panelButtons"> + 5 </div>
+                <div class="panelButtons"> + 10 </div>
+                <div class="panelButtons"> - 1 </div>
+                <div class="panelButtons"> - 2 </div>
+                <div class="panelButtons"> - 5 </div>
+                <div class="panelButtons"> - 10 </div>
+            </div>
+            <div class="buttons">
+                <button id="addCredits">To Add</button>
+                <button id="insertCreditsCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div id="warnings"></div>
+
+    <div id="info">
+        <button id="infoButton">?</button>
+        <div id="infoText">
+            <p>If you roll a single 7, congratulations! You'll double your initial bet. It's a good sign of luck, so
+                enjoy
+                it!</p>
+            <p>Now, if you manage to roll two 7s, that's even better! You'll triple your original bet. You're really on
+                the
+                path of luck now!</p>
+            <p>But wait, there's more! If, by chance, you roll three 7s, it's a true stroke of luck! Your initial bet
+                will
+                be multiplied by 10! That's right, 10 times more! You'll leave this round with a huge smile on your
+                face!</p>
+            <p>Now, remember, not everything is always perfect. If you don't roll any 7s, well, it's a pity, but you'll
+                lose your initial bet. But don't be discouraged, the next round might be your lucky one!</p>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
