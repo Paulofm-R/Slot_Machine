@@ -24,65 +24,69 @@ document.querySelector("#play").addEventListener("click", () => {
                 }
             })
 
-            let numbers = [];
+            if (playerCredits < playerBet)
+                newWarning(`Do you need more ${playerBet - playerCredits} credits`);
+            else {
+                let numbers = [];
 
-            let num1 = document.querySelector("#num1");
-            let num2 = document.querySelector("#num2");
-            let num3 = document.querySelector("#num3");
-
-            for (let i = 0; i < quantNum; i++) {
-                const num = Math.floor(Math.random() * 10);
-                numbers.push(num)
-            }
-
-            num1.innerHTML = '<div class="loader"></div>';
-            num2.innerHTML = '<div class="loader"></div>';
-            num3.innerHTML = '<div class="loader"></div>';
-
-            setTimeout(() => {
-                num1.innerHTML = numbers[0];
-            }, 2000);
-
-            setTimeout(() => {
-                num2.innerHTML = numbers[1];
-            }, 4000);
-
-            setTimeout(() => {
-                num3.innerHTML = numbers[2];
-            }, 6000);
-
-            setTimeout(() => {
-                const countSevens = numbers.filter(num => num === 7).length;
-
-                switch (countSevens) {
-                    case 0:
-                        playerCredits -= playerBet;
-                        newWarning(`It lost ${playerBet}`);
-                        break;
-                    case 1:
-                        playerCredits += (playerBet * 2);
-                        newWarning(`It won ${playerBet * 2}`);
-                        break;
-                    case 2:
-                        playerCredits += (playerBet * 3);
-                        newWarning(`It won ${playerBet * 3}`);
-                        break;
-                    case 3:
-                        playerCredits += (playerBet * 10);
-                        newWarning(`It won ${playerBet * 10}`);
-                        break;
+                let num1 = document.querySelector("#num1");
+                let num2 = document.querySelector("#num2");
+                let num3 = document.querySelector("#num3");
+    
+                for (let i = 0; i < quantNum; i++) {
+                    const num = Math.floor(Math.random() * 10);
+                    numbers.push(num)
                 }
-
-                playerInfo.innerHTML = `Credits: ${playerCredits}€`;
-                isPlay = true;
-            }, 7000);
+    
+                num1.innerHTML = '<div class="loader"></div>';
+                num2.innerHTML = '<div class="loader"></div>';
+                num3.innerHTML = '<div class="loader"></div>';
+    
+                setTimeout(() => {
+                    num1.innerHTML = numbers[0];
+                }, 2000);
+    
+                setTimeout(() => {
+                    num2.innerHTML = numbers[1];
+                }, 4000);
+    
+                setTimeout(() => {
+                    num3.innerHTML = numbers[2];
+                }, 6000);
+    
+                setTimeout(() => {
+                    const countSevens = numbers.filter(num => num === 7).length;
+    
+                    switch (countSevens) {
+                        case 0:
+                            playerCredits -= playerBet;
+                            newWarning(`It lost ${playerBet}`);
+                            break;
+                        case 1:
+                            playerCredits += (playerBet * 2);
+                            newWarning(`It won ${playerBet * 2}`);
+                            break;
+                        case 2:
+                            playerCredits += (playerBet * 3);
+                            newWarning(`It won ${playerBet * 3}`);
+                            break;
+                        case 3:
+                            playerCredits += (playerBet * 10);
+                            newWarning(`It won ${playerBet * 10}`);
+                            break;
+                    }
+    
+                    playerInfo.innerHTML = `Credits: ${playerCredits}€`;
+                    isPlay = true;
+                }, 7000);
+            }
         }
     }
 });
 
 document.querySelector("#insertCredis").addEventListener("click", () => {
-    document.querySelector('#insertCredits').style.display = 'block';
     document.querySelector('#gameArea').style.display = 'none';
+    document.querySelector('#insertCredits').style.display = 'block';
 })
 
 document.querySelector('#insertCreditsCancel').addEventListener("click", () => {
