@@ -8,3 +8,41 @@
     height: 50vh;
     border: 1px solid black;
 }
+
+#gameAreaTop{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    font-size: 1.15em;
+}
+
+#playerInfo>span{
+    margin: 0px 10px;
+}
+
+input[name="bet"] {
+    margin: 0 3px;
+}
+
+#GameAreaMid {
+    margin: 10px;
+    height: 80%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.numArea {
+    margin: 5px;
+    border: 1px solid black;
+    width: 25%;
+    height: 90%;
+    font-size: 4em;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
