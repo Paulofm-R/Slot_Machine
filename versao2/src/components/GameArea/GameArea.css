@@ -46,3 +46,14 @@ input[name="bet"] {
     justify-content: center;
     align-items: center;
 }
+
+#gameAreaBottom {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#gameAreaBottom>button {
+    width: 150px;
+    height: 45px;
+    margin: 0px 15px;
+}

@@ -26,22 +26,19 @@ const Imagens = {
   };
 
 const GameAreaMid = ({numbers}) => {
-    const renderImage = (number, timer) => {
-        console.log(timer);
-        setTimeout(() => {
-            
-            
-        }, timer)
-
+    const renderImage = (number) => {
+      if (number !== undefined) {
         const image = Imagens[number];
-        return <img src={image} alt={`Image ${number}`} />
+        return <img src={image} alt={`Image ${number}`} style={{ width: '80%', height: '80%' }}/>
+      }
+      return;
     }
 
   return (
     <div id='GameAreaMid'>
-        <div id="num1" className="numArea">{renderImage(numbers[0], 2000)}</div>
-        <div id="num2" className="numArea">{renderImage(numbers[1], 4000)}</div>
-        <div id="num3" className="numArea">{renderImage(numbers[2], 6000)}</div>
+        <div id="num1" className="numArea">{renderImage(numbers[0])}</div>
+        <div id="num2" className="numArea">{renderImage(numbers[1])}</div>
+        <div id="num3" className="numArea">{renderImage(numbers[2])}</div>
     </div>
   )
 }
