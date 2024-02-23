@@ -15,7 +15,7 @@ const GameAreaTop = ({props, selectedBet}) => {
         </div>
         <div id="playerInfo">
           <span id="creditsEarned">Credits earned: {creditsEarned}€</span>
-          <span id="creditsBet">Credits bet: {creditsBetty}€ / 200€</span>
+          <span id="creditsBet">Credits bet: {creditsBetty}€ / 500€</span>
         </div>
         <div id="Bets">
             <span>Bets:</span>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useRef } from 'react'
+import {useState, useEffect } from 'react'
 
 // CSS
 import './GameArea.css';
@@ -9,7 +9,7 @@ import GameAreaTop from "./GameAreaTop.js"
 import GameAreaMid from "./GameAreaMid.js"
 import GameAreaBottom from "./GameAreaBottom.js"
 
-const GameArea = ({addMoreCredits}) => {
+const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg}) => {
   const [numbers, setNumbers] = useState([]);
   const [playerCredits, setPlayerCredits] = useState(20);
   const [creditsEarned, setCreditsEarned] = useState(0);
@@ -17,8 +17,14 @@ const GameArea = ({addMoreCredits}) => {
   const [selectedBet, setSelectedBet] = useState(1)
 
   const playGame = () => {
-    if (playerCredits < selectedBet) {
-      // vai fazer coisas
+    if (playerCredits < selectedBet || creditsBetty + +selectedBet > 500) {
+      if (playerCredits < selectedBet)
+          setMsg(`Need more ${selectedBet-playerCredits} credits`);
+      else if (creditsBetty === 500)
+          setMsg(`You have already reached the limit of 500 credits per day. Withdraw your money and come back tomorrow`);
+      else if (creditsBetty + +selectedBet > 500) {
+        setMsg(`You can no longer place a bet of that amount, make a smaller one`);
+      }
     } else {
       if (numbers.length > 0) 
       setNumbers([])
@@ -53,7 +59,9 @@ const GameArea = ({addMoreCredits}) => {
               break;
       }
 
+      setCreditsEarned(creditsEarned + (currentPlayerCredits - playerCredits));
       setPlayerCredits(currentPlayerCredits);
+      setCreditsBetty(creditsBetty + +selectedBet);
     }
   }
 
@@ -64,6 +72,12 @@ const GameArea = ({addMoreCredits}) => {
   const giveUp = () => {
     
   }
+
+  useEffect(() => {
+    const more = playerCredits + moreCredits
+    setPlayerCredits(more);
+    resetMoreCredits(0) // para não dar problemas ao adicionar 2 vezes a mesma quandidade de creditos
+  }, [moreCredits]);
 
   return (
     <div id="gameArea">
