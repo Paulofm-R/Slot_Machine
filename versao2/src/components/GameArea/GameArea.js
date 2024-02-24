@@ -9,7 +9,7 @@ import GameAreaTop from "./GameAreaTop.js"
 import GameAreaMid from "./GameAreaMid.js"
 import GameAreaBottom from "./GameAreaBottom.js"
 
-const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg}) => {
+const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info}) => {
   const [numbers, setNumbers] = useState([]);
   const [playerCredits, setPlayerCredits] = useState(20);
   const [creditsEarned, setCreditsEarned] = useState(0);
@@ -65,12 +65,10 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg}) => {
     }
   }
 
-  const addCredits = () => {
-    addMoreCredits()
-  }
-
   const giveUp = () => {
-    
+    const status = creditsEarned > 0 ? 'you win' : 'you get lost'
+    setMsg(`Game finished! You can withdraw ${playerCredits}€. Today ${status} ${Math.abs(creditsEarned)}€`)
+    setPlayerCredits(0);
   }
 
   useEffect(() => {
@@ -83,7 +81,7 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg}) => {
     <div id="gameArea">
       <GameAreaTop selectedBet={setSelectedBet} props={{playerCredits, creditsEarned, creditsBetty}}/>
       <GameAreaMid numbers={numbers}/>
-      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={addCredits} onClickGiveUpBtn={giveUp}/>
+      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={() => addMoreCredits(true)} onClickGiveUpBtn={giveUp} onClickInfosBtn={() => info(true)}/>
     </div>
   )
 }

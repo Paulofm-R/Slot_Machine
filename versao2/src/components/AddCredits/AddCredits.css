@@ -6,7 +6,7 @@
     bottom: 0;
     margin: auto;
     width: 25vw;
-    height: 35vh;
+    height: 345px;
     border: 1px solid black;
     z-index: 2;
     background-color: #de1c06;
@@ -50,6 +50,7 @@
 
 .panelButtons:hover {
     background-color: #ffdd58;
+    cursor: pointer;
 }
 
 #buttons {
@@ -62,8 +63,4 @@
     height: 45px;
     margin: 5px 15px;
     background-color: #FFE98E;
-}
-
-#buttons>button:hover {
-    background-color: #ffdd58;
 }

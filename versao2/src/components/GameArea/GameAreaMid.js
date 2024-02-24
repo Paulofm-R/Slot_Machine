@@ -36,9 +36,18 @@ const GameAreaMid = ({numbers}) => {
 
   return (
     <div id='GameAreaMid'>
-        <div id="num1" className="numArea">{renderImage(numbers[0])}</div>
-        <div id="num2" className="numArea">{renderImage(numbers[1])}</div>
-        <div id="num3" className="numArea">{renderImage(numbers[2])}</div>
+        <div id="slot1" className="slot">
+          <div className="slotMachine"></div>
+          {renderImage(numbers[0])}
+        </div>
+        <div id="slot2" className="slot">
+          <div className="slotMachine"></div>
+          {renderImage(numbers[1])}
+        </div>
+        <div id="slot3" className="slot">
+          <div className="slotMachine"></div>
+          {renderImage(numbers[2])}
+        </div>
     </div>
   )
 }

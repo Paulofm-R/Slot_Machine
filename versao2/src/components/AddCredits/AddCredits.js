@@ -36,7 +36,7 @@ const AddCredits = ({toAddCredits, cancelMoreCredits}) => {
             </div>
             <div id="buttons">
                 <button id="addCredits" onClick={() => toAddCredits(displayValue)}>To Add</button>
-                <button id="insertCreditsCancel" onClick={cancelMoreCredits}>Cancel</button>
+                <button id="insertCreditsCancel" onClick={() => cancelMoreCredits(false)}>Cancel</button>
             </div>
         </div>
     </div>

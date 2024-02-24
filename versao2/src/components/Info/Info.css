@@ -1,0 +1,25 @@
+#info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 25vw;
+    height: 35vh;
+    border: 1px solid black;
+    z-index: 2;
+    background-color: #de1c06;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+#infoText {
+    color: white;
+}
+
+#closeInfo{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
