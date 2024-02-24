@@ -1,3 +1,8 @@
+:root {
+    --slot-move-color1: rgba(255, 0, 0, 0.80);
+    --slot-move-color2: #fff;
+}
+
 #gameArea {
     display: flex;
     flex-direction: column;
@@ -82,42 +87,48 @@ input[name="bet"] {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: linear-gradient(to bottom, #000, #000)!important;
-    animation: flicker 0.45s linear infinite;
+    background-color: linear-gradient(to bottom, var(--slot-move-color2), var(--slot-move-color2))!important;
+    animation: flicker 0.5s linear infinite;
 }
 
 @keyframes flicker {
     0% {
-        background: linear-gradient(to bottom, #f00 0%, #000 100%);
+        background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 0%);
     }
-    10% {
-        background: linear-gradient(to bottom, #f00 25%, #000 100%);
+    9.09% {
+        background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 25%);
     }
-    20% {
-        background: linear-gradient(to bottom, #f00 50%, #000 100%);
+    18.18% {
+        background: linear-gradient(to bottom, var(--slot-move-color1) 25%, var(--slot-move-color2) 50%);
     }
-    30% {
-        background: linear-gradient(to bottom, #f00 75%, #000 100%);
+    27.27% {
+        background: linear-gradient(to bottom, var(--slot-move-color1) 50%, var(--slot-move-color2) 75%);
     }
-    40% {
-        background: linear-gradient(to bottom, #f00 100%, #000 100%);
+    36.36% {
+        background: linear-gradient(to bottom, var(--slot-move-color1) 75%, var(--slot-move-color2) 100%);
     }
-    50% {
-        background: linear-gradient(to bottom, #000 0%, #f00 100%);
+    45.45% {
+        background: linear-gradient(to bottom, var(--slot-move-color1) 100%, var(--slot-move-color2) 100%);
     }
-    60% {
-        background: linear-gradient(to bottom, #000 25%, #f00 100%);
+    54.54% {
+        background: linear-gradient(to bottom, var(--slot-move-color2) 0%, var(--slot-move-color1) 0%);
     }
-    70% {
-        background: linear-gradient(to bottom, #000 50%, #f00 100%);
+    63.63% {
+        background: linear-gradient(to bottom, var(--slot-move-color2) 0%, var(--slot-move-color1) 25%);
     }
-    80% {
-        background: linear-gradient(to bottom, #000 75%, #f00 100%);
+    72.72% {
+        background: linear-gradient(to bottom,  var(--slot-move-color2) 25%, var(--slot-move-color1) 50%);
     }
-    90% {
-        background: linear-gradient(to bottom, #000 100%, #f00 100%);
+    81.81% {
+        background: linear-gradient(to bottom,  var(--slot-move-color2) 50%, var(--slot-move-color1) 75%);
+    }
+    90.9% {
+        background: linear-gradient(to bottom,  var(--slot-move-color2) 50% var(--slot-move-color1) 100%);
+    }
+    99.99% {
+        background: linear-gradient(to bottom,  var(--slot-move-color2) 75% var(--slot-move-color1) 100%);
     }
     100% {
-        background: linear-gradient(to bottom, #f00 0%, #000 100%);
+        background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 0%);
     }
 }

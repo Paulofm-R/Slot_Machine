@@ -25,7 +25,15 @@ const Imagens = {
     9: num9,
   };
 
-const GameAreaMid = ({numbers}) => {
+const GameAreaMid = ({numbers, setHasFinished}) => {
+  const [animationSlot1, setAnimationSlot1] = useState(false);
+  const [animationSlot2, setAnimationSlot2] = useState(false);
+  const [animationSlot3, setAnimationSlot3] = useState(false);
+  const [showSlot1, setShowSlot1] = useState(false);
+  const [showSlot2, setShowSlot2] = useState(false);
+  const [showSlot3, setShowSlot3] = useState(false);
+  
+
     const renderImage = (number) => {
       if (number !== undefined) {
         const image = Imagens[number];
@@ -34,19 +42,52 @@ const GameAreaMid = ({numbers}) => {
       return;
     }
 
+  useEffect(() => {
+    if (numbers.length > 0) {
+      setShowSlot1(false);
+      setShowSlot2(false);
+      setShowSlot3(false);
+      setHasFinished(false)
+
+      setTimeout(() => {
+        setAnimationSlot1(true);
+      }, 150)
+      setTimeout(() => {
+        setAnimationSlot2(true);
+      }, 300)
+      setTimeout(() => {
+        setAnimationSlot3(true);
+      }, 450)
+  
+      setTimeout(() => {
+        setAnimationSlot1(false);
+        setShowSlot1(true)
+      }, 2600);
+      setTimeout(() => {
+        setAnimationSlot2(false);
+        setShowSlot2(true)
+      }, 4200);
+      setTimeout(() => {
+        setAnimationSlot3(false);
+        setShowSlot3(true);
+        setHasFinished(true);
+      }, 5800);
+    }
+    }, [numbers])
+
   return (
     <div id='GameAreaMid'>
         <div id="slot1" className="slot">
-          <div className="slotMachine"></div>
-          {renderImage(numbers[0])}
+          {animationSlot1 && <div className="slotMachine"></div>}
+          {showSlot1 && renderImage(numbers[0])}
         </div>
         <div id="slot2" className="slot">
-          <div className="slotMachine"></div>
-          {renderImage(numbers[1])}
+          {animationSlot2 && <div className="slotMachine"></div>}
+          {showSlot2 && renderImage(numbers[1])}
         </div>
         <div id="slot3" className="slot">
-          <div className="slotMachine"></div>
-          {renderImage(numbers[2])}
+          {animationSlot3 && <div className="slotMachine"></div>}
+          {showSlot3 && renderImage(numbers[2])}
         </div>
     </div>
   )

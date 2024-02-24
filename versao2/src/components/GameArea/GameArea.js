@@ -14,9 +14,12 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
   const [playerCredits, setPlayerCredits] = useState(20);
   const [creditsEarned, setCreditsEarned] = useState(0);
   const [creditsBetty, setCreditsBetty] = useState(0);
-  const [selectedBet, setSelectedBet] = useState(1)
+  const [selectedBet, setSelectedBet] = useState(1);
+  const [hasFinished, setHasFinished] = useState(true);
 
   const playGame = () => {
+    setMsg('');
+
     if (playerCredits < selectedBet || creditsBetty + +selectedBet > 500) {
       if (playerCredits < selectedBet)
           setMsg(`Need more ${selectedBet-playerCredits} credits`);
@@ -40,20 +43,24 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
 
       const countSevens = newNumbers.filter(num => num === 7).length;
       let  currentPlayerCredits = playerCredits
-      console.log(currentPlayerCredits);
+      let msg
 
       switch (countSevens) {
           case 0:
               currentPlayerCredits -= selectedBet;
+              msg = `Oh, no 7 came. You lost ${selectedBet}€` 
               break;
           case 1:
               currentPlayerCredits += (selectedBet * 2);
+              msg = `A 7 came! You earn ${selectedBet}€!` 
               break;
           case 2:
               currentPlayerCredits += (selectedBet * 3);
+              msg = `Good, two 7s came! You earn ${selectedBet}€!` 
               break;
           case 3:
               currentPlayerCredits += (selectedBet * 10);
+              msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet}€! :D` 
               break;
           default:
               break;
@@ -62,6 +69,11 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
       setCreditsEarned(creditsEarned + (currentPlayerCredits - playerCredits));
       setPlayerCredits(currentPlayerCredits);
       setCreditsBetty(creditsBetty + +selectedBet);
+
+      setTimeout(() => {
+        setMsg(msg);
+      }, 6000)
+      
     }
   }
 
@@ -79,9 +91,9 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
 
   return (
     <div id="gameArea">
-      <GameAreaTop selectedBet={setSelectedBet} props={{playerCredits, creditsEarned, creditsBetty}}/>
-      <GameAreaMid numbers={numbers}/>
-      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={() => addMoreCredits(true)} onClickGiveUpBtn={giveUp} onClickInfosBtn={() => info(true)}/>
+      <GameAreaTop selectedBet={setSelectedBet} props={{playerCredits, creditsEarned, creditsBetty, hasFinished}}/>
+      <GameAreaMid numbers={numbers} setHasFinished={setHasFinished}/>
+      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={() => addMoreCredits(true)} onClickGiveUpBtn={giveUp} onClickInfosBtn={() => info(true)} hasFinished={hasFinished}/>
     </div>
   )
 }
