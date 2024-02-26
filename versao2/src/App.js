@@ -24,10 +24,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>Slot Machine</h1>
-      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={setMsg} Info={setIsInfo}/>
+      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={setMsg} info={setIsInfo}/>
       {isAddCredits && <AddCredits toAddCredits={toAddCredits} cancelMoreCredits={setAddCredits}/>}
       <Warnings msg={msg}/>
-      {isInfo && <Info />}
+      {isInfo && <Info info={setIsInfo}/>}
     </div>
   );
 }

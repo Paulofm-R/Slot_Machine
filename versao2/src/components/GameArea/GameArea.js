@@ -52,25 +52,25 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
               break;
           case 1:
               currentPlayerCredits += (selectedBet * 2);
-              msg = `A 7 came! You earn ${selectedBet}€!` 
+              msg = `A 7 came! You earn ${selectedBet*2}€!` 
               break;
           case 2:
               currentPlayerCredits += (selectedBet * 3);
-              msg = `Good, two 7s came! You earn ${selectedBet}€!` 
+              msg = `Good, two 7s came! You earn ${selectedBet*3}€!` 
               break;
           case 3:
               currentPlayerCredits += (selectedBet * 10);
-              msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet}€! :D` 
+              msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet*10}€! :D` 
               break;
           default:
               break;
       }
 
-      setCreditsEarned(creditsEarned + (currentPlayerCredits - playerCredits));
-      setPlayerCredits(currentPlayerCredits);
       setCreditsBetty(creditsBetty + +selectedBet);
+      setCreditsEarned(creditsEarned + (currentPlayerCredits - playerCredits));
 
       setTimeout(() => {
+        setPlayerCredits(currentPlayerCredits);
         setMsg(msg);
       }, 6000)
       
