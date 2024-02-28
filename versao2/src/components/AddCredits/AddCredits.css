@@ -67,3 +67,8 @@
     margin: 5px 15px;
     background-color: #FFE98E;
 }
+
+#buttons>button:hover {
+    background-color: #ffdd58;
+    cursor: pointer;
+}
