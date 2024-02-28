@@ -36,14 +36,17 @@
 
 .panelButtons {
     border: solid 1px black;
-    width: calc(25% - 15px); /* Define a largura das divs, subtraindo a margem */
+    width: calc(25% - 15px);
+    /* Define a largura das divs, subtraindo a margem */
     height: 60px;
     margin: 10px 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box; /* Garante que a largura inclua a borda */
-    padding: 10px; /* Adiciona preenchimento interno */
+    box-sizing: border-box;
+    /* Garante que a largura inclua a borda */
+    padding: 10px;
+    /* Adiciona preenchimento interno */
     background-color: #FFE98E;
     color: black;
 }

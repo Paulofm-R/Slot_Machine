@@ -8,7 +8,7 @@ import num2 from '../../img/num2.png'
 // CSS
 import "./Info.css"
 
-const Info = ({info}) => {
+const Info = ({ info }) => {
   return (
     <div id="info">
       <div id="infoText">

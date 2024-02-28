@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 // CSS
 import './GameArea.css';
@@ -9,7 +9,7 @@ import GameAreaTop from "./GameAreaTop.js"
 import GameAreaMid from "./GameAreaMid.js"
 import GameAreaBottom from "./GameAreaBottom.js"
 
-const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info}) => {
+const GameArea = ({ addMoreCredits, moreCredits, resetMoreCredits, setMsg, info }) => {
   const [numbers, setNumbers] = useState([]);
   const [playerCredits, setPlayerCredits] = useState(20);
   const [creditsEarned, setCreditsEarned] = useState(0);
@@ -22,48 +22,48 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
 
     if (playerCredits < selectedBet || creditsBetty + +selectedBet > 500) {
       if (playerCredits < selectedBet)
-          setMsg(`Need more ${selectedBet-playerCredits} credits`);
+        setMsg(`Need more ${selectedBet - playerCredits} credits`);
       else if (creditsBetty === 500)
-          setMsg(`You have already reached the limit of 500 credits per day. Withdraw your money and come back tomorrow`);
+        setMsg(`You have already reached the limit of 500 credits per day. Withdraw your money and come back tomorrow`);
       else if (creditsBetty + +selectedBet > 500) {
         setMsg(`You can no longer place a bet of that amount, make a smaller one`);
       }
     } else {
-      if (numbers.length > 0) 
-      setNumbers([])
+      if (numbers.length > 0)
+        setNumbers([])
 
       const newNumbers = []
 
       for (let i = 0; i < 3; i++) {
-          const num = Math.floor(Math.random() * 10);
-          newNumbers.push(num)
+        const num = Math.floor(Math.random() * 10);
+        newNumbers.push(num)
       }
 
       setNumbers(newNumbers)
 
       const countSevens = newNumbers.filter(num => num === 7).length;
-      let  currentPlayerCredits = playerCredits
+      let currentPlayerCredits = playerCredits
       let msg
 
       switch (countSevens) {
-          case 0:
-              currentPlayerCredits -= selectedBet;
-              msg = `Oh, no 7 came. You lost ${selectedBet}€` 
-              break;
-          case 1:
-              currentPlayerCredits += (selectedBet * 2);
-              msg = `A 7 came! You earn ${selectedBet*2}€!` 
-              break;
-          case 2:
-              currentPlayerCredits += (selectedBet * 3);
-              msg = `Good, two 7s came! You earn ${selectedBet*3}€!` 
-              break;
-          case 3:
-              currentPlayerCredits += (selectedBet * 10);
-              msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet*10}€! :D` 
-              break;
-          default:
-              break;
+        case 0:
+          currentPlayerCredits -= selectedBet;
+          msg = `Oh, no 7 came. You lost ${selectedBet}€`
+          break;
+        case 1:
+          currentPlayerCredits += (selectedBet * 2);
+          msg = `A 7 came! You earn ${selectedBet * 2}€!`
+          break;
+        case 2:
+          currentPlayerCredits += (selectedBet * 3);
+          msg = `Good, two 7s came! You earn ${selectedBet * 3}€!`
+          break;
+        case 3:
+          currentPlayerCredits += (selectedBet * 10);
+          msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet * 10}€! :D`
+          break;
+        default:
+          break;
       }
 
       setCreditsBetty(creditsBetty + +selectedBet);
@@ -73,7 +73,7 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
         setPlayerCredits(currentPlayerCredits);
         setMsg(msg);
       }, 6000)
-      
+
     }
   }
 
@@ -91,9 +91,9 @@ const GameArea = ({addMoreCredits, moreCredits, resetMoreCredits, setMsg, info})
 
   return (
     <div id="gameArea">
-      <GameAreaTop selectedBet={setSelectedBet} props={{playerCredits, creditsEarned, creditsBetty, hasFinished}}/>
-      <GameAreaMid numbers={numbers} setHasFinished={setHasFinished}/>
-      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={() => addMoreCredits(true)} onClickGiveUpBtn={giveUp} onClickInfosBtn={() => info(true)} hasFinished={hasFinished}/>
+      <GameAreaTop selectedBet={setSelectedBet} props={{ playerCredits, creditsEarned, creditsBetty, hasFinished }} />
+      <GameAreaMid numbers={numbers} setHasFinished={setHasFinished} />
+      <GameAreaBottom onClickPlayBtn={playGame} onClickAddCreditsBtn={() => addMoreCredits(true)} onClickGiveUpBtn={giveUp} onClickInfosBtn={() => info(true)} hasFinished={hasFinished} />
     </div>
   )
 }

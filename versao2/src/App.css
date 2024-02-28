@@ -1,9 +1,9 @@
-*{
+* {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.01em;
 }
 
-h1{
+h1 {
   text-align: center;
   margin-top: 10vh;
   font-size: 3em;
@@ -11,7 +11,7 @@ h1{
   text-decoration: underline;
 }
 
-button{
+button {
   background-color: #FFEFB0;
 }
 

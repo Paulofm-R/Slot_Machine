@@ -15,7 +15,7 @@
     background-color: #de1c06;
 }
 
-#gameAreaTop{
+#gameAreaTop {
     display: flex;
     justify-content: space-between;
     margin: 5px;
@@ -23,12 +23,12 @@
 }
 
 @media (max-width: 1500px) {
-    #gameAreaTop{
+    #gameAreaTop {
         font-size: 1.05em;
-    } 
+    }
 }
 
-#playerInfo>span{
+#playerInfo>span {
     margin: 0px 10px;
 }
 
@@ -71,11 +71,11 @@ input[name="bet"] {
 }
 
 #infoBtn {
-    width: 32px!important;
-    height: 32px!important;
+    width: 32px !important;
+    height: 32px !important;
     border-radius: 50%;
     align-items: center;
-    font-size: 1em!important;
+    font-size: 1em !important;
 }
 
 #play {
@@ -93,7 +93,7 @@ input[name="bet"] {
     height: 100%;
     overflow: hidden;
     position: relative;
-    background-color: linear-gradient(to bottom, var(--slot-move-color2), var(--slot-move-color2))!important;
+    background-color: linear-gradient(to bottom, var(--slot-move-color2), var(--slot-move-color2)) !important;
     animation: flicker 0.5s linear infinite;
 }
 
@@ -101,39 +101,51 @@ input[name="bet"] {
     0% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 0%);
     }
+
     9.09% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 25%);
     }
+
     18.18% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 25%, var(--slot-move-color2) 50%);
     }
+
     27.27% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 50%, var(--slot-move-color2) 75%);
     }
+
     36.36% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 75%, var(--slot-move-color2) 100%);
     }
+
     45.45% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 100%, var(--slot-move-color2) 100%);
     }
+
     54.54% {
         background: linear-gradient(to bottom, var(--slot-move-color2) 0%, var(--slot-move-color1) 0%);
     }
+
     63.63% {
         background: linear-gradient(to bottom, var(--slot-move-color2) 0%, var(--slot-move-color1) 25%);
     }
+
     72.72% {
-        background: linear-gradient(to bottom,  var(--slot-move-color2) 25%, var(--slot-move-color1) 50%);
+        background: linear-gradient(to bottom, var(--slot-move-color2) 25%, var(--slot-move-color1) 50%);
     }
+
     81.81% {
-        background: linear-gradient(to bottom,  var(--slot-move-color2) 50%, var(--slot-move-color1) 75%);
+        background: linear-gradient(to bottom, var(--slot-move-color2) 50%, var(--slot-move-color1) 75%);
     }
+
     90.9% {
-        background: linear-gradient(to bottom,  var(--slot-move-color2) 50% var(--slot-move-color1) 100%);
+        background: linear-gradient(to bottom, var(--slot-move-color2) 50% var(--slot-move-color1) 100%);
     }
+
     99.99% {
-        background: linear-gradient(to bottom,  var(--slot-move-color2) 75% var(--slot-move-color1) 100%);
+        background: linear-gradient(to bottom, var(--slot-move-color2) 75% var(--slot-move-color1) 100%);
     }
+
     100% {
         background: linear-gradient(to bottom, var(--slot-move-color1) 0%, var(--slot-move-color2) 0%);
     }

@@ -12,7 +12,7 @@ const App = () => {
   const [moreCredits, setMoreCredits] = useState(0)
   const [msg, setMsg] = useState('')
 
-  const toAddCredits = (value) => { 
+  const toAddCredits = (value) => {
     setMoreCredits(value);
     setAddCredits(false);
   }
@@ -24,10 +24,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>Slot Machine</h1>
-      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={setMsg} info={setIsInfo}/>
-      {isAddCredits && <AddCredits toAddCredits={toAddCredits} cancelMoreCredits={setAddCredits}/>}
-      <Warnings msg={msg}/>
-      {isInfo && <Info info={setIsInfo}/>}
+      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={setMsg} info={setIsInfo} />
+      {isAddCredits && <AddCredits toAddCredits={toAddCredits} cancelMoreCredits={setAddCredits} />}
+      <Warnings msg={msg} />
+      {isInfo && <Info info={setIsInfo} />}
     </div>
   );
 }
