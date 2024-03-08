@@ -20,6 +20,7 @@
     justify-content: space-between;
     margin: 5px;
     font-size: 1.15em;
+    color: white;
 }
 
 @media (max-width: 1500px) {

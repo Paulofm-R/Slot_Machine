@@ -11,6 +11,7 @@ const App = () => {
   const [isInfo, setIsInfo] = useState(false);
   const [moreCredits, setMoreCredits] = useState(0)
   const [msg, setMsg] = useState('')
+  const [win, setWin] = useState(false)
 
   const toAddCredits = (value) => {
     setMoreCredits(value);
@@ -21,12 +22,17 @@ const App = () => {
     setMoreCredits(value);
   }
 
+  const newMsg = (newMsg, newWin) => {
+    setMsg(newMsg);
+    setWin(newWin);
+  }
+
   return (
     <div className="App">
       <h1>Slot Machine</h1>
-      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={setMsg} info={setIsInfo} />
+      <GameArea addMoreCredits={setAddCredits} moreCredits={moreCredits} resetMoreCredits={resetMoreCredits} setMsg={newMsg} info={setIsInfo} />
       {isAddCredits && <AddCredits toAddCredits={toAddCredits} cancelMoreCredits={setAddCredits} />}
-      <Warnings msg={msg} />
+      <Warnings props={{msg, win}} />
       {isInfo && <Info info={setIsInfo} />}
     </div>
   );

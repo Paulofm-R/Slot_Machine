@@ -3,9 +3,11 @@ import React from 'react'
 // CSS
 import './Warnings.css';
 
-const Warnings = ({ msg }) => {
+const Warnings = ({ props }) => {
+  const { msg, win } = props;
+
   return (
-    <div id="warnings">{msg}</div>
+    <div id="warnings" className={win ? 'win_warnings' : ''}>{msg}</div>
   )
 }
 

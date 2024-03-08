@@ -18,7 +18,7 @@ const GameArea = ({ addMoreCredits, moreCredits, resetMoreCredits, setMsg, info 
   const [hasFinished, setHasFinished] = useState(true);
 
   const playGame = () => {
-    setMsg('');
+    setMsg('', false);
 
     if (playerCredits < selectedBet || creditsBetty + +selectedBet > 500) {
       if (playerCredits < selectedBet)
@@ -44,23 +44,28 @@ const GameArea = ({ addMoreCredits, moreCredits, resetMoreCredits, setMsg, info 
       const countSevens = newNumbers.filter(num => num === 7).length;
       let currentPlayerCredits = playerCredits
       let msg
+      let win;
 
       switch (countSevens) {
         case 0:
           currentPlayerCredits -= selectedBet;
           msg = `Oh, no 7 came. You lost ${selectedBet}€`
+          win = false;
           break;
         case 1:
           currentPlayerCredits += (selectedBet * 2);
           msg = `A 7 came! You earn ${selectedBet * 2}€!`
+          win = true;
           break;
         case 2:
           currentPlayerCredits += (selectedBet * 3);
           msg = `Good, two 7s came! You earn ${selectedBet * 3}€!`
+          win = true;
           break;
         case 3:
           currentPlayerCredits += (selectedBet * 10);
           msg = `CONGRATULATIONS! Three 7s came! You earn ${selectedBet * 10}€! :D`
+          win = true;
           break;
         default:
           break;
@@ -71,7 +76,7 @@ const GameArea = ({ addMoreCredits, moreCredits, resetMoreCredits, setMsg, info 
 
       setTimeout(() => {
         setPlayerCredits(currentPlayerCredits);
-        setMsg(msg);
+        setMsg(msg, win);
       }, 6000)
 
     }
